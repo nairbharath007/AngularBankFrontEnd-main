@@ -1,0 +1,31 @@
+
+.counter-card {
+    background-color: #f8f9fa; /* Light background */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Spacing inside the card */
+    margin-bottom: 20px; /* Spacing between cards */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+  }
+  
+  .counter-card:hover {
+    transform: translateY(-10px); /* Slightly raise the card on hover */
+  }
+  
+  .counter-card h3 {
+    margin: 0;
+    font-size: 2em; /* Large font size for the counter */
+    color: #007bff; /* Primary color for the counter */
+  }
+  
+  .counter-card p {
+    margin: 0;
+    color: #666; /* Gray color for the text */
+  }
+  
+  .counter-card .icon {
+    font-size: 1.5em; /* Icon size */
+    color: #d8b02c; /* Icon color */
+    margin-bottom: 10px; /* Space below the icon */
+  }

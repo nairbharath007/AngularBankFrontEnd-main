@@ -1,0 +1,27 @@
+.container {
+    margin-top: 5%;
+
+  }
+
+  .card {
+    transition: background-color 0.3s ease-in-out;
+    background-color: #f6f8fa;
+    opacity: 1;
+  }
+
+  .card:hover {
+    background-color: rgba(0, 123, 255, 0.8); /* Adjust the color and opacity as needed */
+
+  }
+
+  .card-title {
+    color: #0a0a0a; /* Set the title color */
+  }
+  .card-title:hover {
+    color: #d2d3d4; /* Set the title color */
+  }
+
+
+  .card-text {
+    color: #333; /* Set the text color */
+  }

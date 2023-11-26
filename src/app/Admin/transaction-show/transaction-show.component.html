@@ -1,0 +1,133 @@
+<!-- account-list.component.html -->
+<div *ngIf="erroShow" class="mt-3">
+  <ngb-alert [type]="'danger'">
+    <h4 class="alert-heading">Sorry, No Account Found</h4>
+    <p class="mb-0">Please verify the information and try again.</p>
+    <button class="btn btn-danger" (click)="refreshfun()">Try Again</button>
+  </ngb-alert>
+</div>
+
+<!-- Form Section -->
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form [formGroup]="accountForm" (ngSubmit)="onSubmit(accountForm.value)" class="text-center">
+        <div class="form-group">
+          <label for="accountType">Search Account Number:</label>
+          <input type="number" class="form-control" placeholder="Search by Customer ID" formControlName="accountNumber" />
+          <div *ngIf="accountTypeValidator && accountTypeValidator.invalid && accountTypeValidator.touched" class="text-danger">
+            Account type is required.
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3" [disabled]="accountForm.invalid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Accordion Section for Account Information -->
+<div *ngIf="resultcondition" class="container mt-4">
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Account Information
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <!-- Account Information Table -->
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Account Number</th>
+                <th>Account Type</th>
+                <th>Opening Date</th>
+                <th>Account Balance</th>
+                <th>Customer Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let account of accounts">
+                <td>{{ account.accountNumber }}</td>
+                <td>{{ account.accountType }}</td>
+                <td>{{ account.openningDate | date:'short' }}</td>
+                <td>{{ account.accountBalance |  currency:'INR' }}</td>
+                <td>{{ account.customer.firstName }}&nbsp;&nbsp;&nbsp; {{ account.customer.lastName }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Additional Sections... -->
+
+
+
+  <div class="container mt-4">
+    <h2>Transaction Details</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Transaction ID</th>
+          <th>Transaction Type</th>
+          <th>Sender ID</th>
+          <th>Receiver ID</th>
+          <th>Transaction Amount</th>
+          <th>Description</th>
+          <th>Transaction Date</th>
+          <th>State</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let account of accounts">
+          <tr *ngFor="let transaction of account.transactions">
+            <td>{{ transaction.transactionId }}</td>
+            <td>{{ transaction.transactionType }}</td>
+            <td>{{ transaction.accountId }}</td>
+            <td>{{ transaction.receiverId === -1 ? 'Self' : transaction.receiverId }}</td>
+            <td>{{ transaction.transactionAmount |  currency:'INR' }}</td>
+            <td>{{ transaction.description }}</td>
+            <td>{{ transaction.transactionDate | date:'short' }}</td>
+            <td>{{ transaction.state }}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <div class="container mt-4">
+  <table class="table table-bordered table-hover table-rounded">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Transaction Type</th>
+        <th scope="col">Transaction Amount</th>
+        <th scope="col">Description</th>
+        <th scope="col">Transaction Date</th>
+        <th scope="col">Account Number</th>  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactions">
+        <th scope="row">{{ transaction.transactionId }}</th>
+        <td>{{ transaction.transactionType }}</td>
+        <td>{{ transaction.transactionAmount }}</td>
+        <td>{{ transaction.description }}</td>
+        <td>{{ transaction.transactionDate | date: 'yyyy-MM-dd HH:mm:ss' }}</td>
+        <td>{{ transaction.accountId }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+  
