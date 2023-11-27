@@ -67,7 +67,7 @@ export class FixedDepositComponent implements OnInit {
     this.fixedDepositForm.addControl('years', new FormControl('', [Validators.min(0), Validators.max(10)]));
     this.fixedDepositForm.addControl('months', new FormControl('', [Validators.max(120)])); // 120 months in 10 years
     this.fixedDepositForm.addControl('days', new FormControl('', [Validators.max(3650)])); // 3650 days in 10 years
-    this.fixedDepositForm.addControl('roi', new FormControl({ value: '', disabled: true }));
+    this.fixedDepositForm.addControl('roi', new FormControl({ }));
   }
 
   ngOnInit() {
@@ -217,9 +217,13 @@ amountValidator(): ValidatorFn {
     // Find the matching interest rate
     const matchingRate = this.interestRates.find(rate => totalDays >= rate.duration.min && totalDays <= rate.duration.max);
   
+    console.log("outside:",matchingRate?.roi);
+    var aVariable = matchingRate?.roi
+    
     // Update the roi field with the found rate or reset if not found
-    if (matchingRate) {
-      this.fixedDepositForm.get('roi')?.setValue(matchingRate.roi);
+    if (aVariable) {
+      console.log("if:",matchingRate?.roi);
+      this.fixedDepositForm.get('roi')?.setValue(aVariable);
     } else {
       this.fixedDepositForm.get('roi')?.setValue('');
     }
@@ -234,16 +238,37 @@ amountValidator(): ValidatorFn {
 
 
 //Issue with fetching the maturity from the form fields, so just using totalDays to find it.
+  // getMaturityDate(): string {
+  //   const totalDays = this.calculateTotalDays();
+  //   let maturityDate = new Date();
+  //   maturityDate.setDate(maturityDate.getDate() + totalDays);
+  
+  //   // Format the date as dd-mm-yyyy and include the day
+  //   const dayOfWeek = maturityDate.toLocaleString('en-US', { weekday: 'long' });
+  //   const formattedDate = `${this.padZero(maturityDate.getDate())}-${this.padZero(maturityDate.getMonth() + 1)}-${maturityDate.getFullYear()}`;
+  
+  //   return `${formattedDate}`;
+  // }
+
+  getDisplayMaturityDate(): string {
+    const totalDays = this.calculateTotalDays();
+    let maturityDate = new Date();
+    maturityDate.setDate(maturityDate.getDate() + totalDays);
+  
+    // Format the date as dd-mm-yyyy for display
+    const formattedDate = maturityDate.toLocaleDateString('en-GB'); // 'en-GB' uses day-month-year format
+  
+    return formattedDate;
+  }
+  
+  
   getMaturityDate(): string {
     const totalDays = this.calculateTotalDays();
     let maturityDate = new Date();
     maturityDate.setDate(maturityDate.getDate() + totalDays);
   
-    // Format the date as dd-mm-yyyy and include the day
-    const dayOfWeek = maturityDate.toLocaleString('en-US', { weekday: 'long' });
-    const formattedDate = `${this.padZero(maturityDate.getDate())}-${this.padZero(maturityDate.getMonth() + 1)}-${maturityDate.getFullYear()}`;
-  
-    return `${formattedDate}`;
+    // Convert to ISO 8601 DateTime format
+    return maturityDate.toISOString();
   }
   
   
@@ -265,14 +290,20 @@ amountValidator(): ValidatorFn {
     // Compound interest formula: A = P(1 + r/n)^(nt)
     // Assuming interest is compounded annually
     const maturityAmount = principal * Math.pow(1 + roi / 100, years);
-    return maturityAmount;
+  
+    // Truncate to 2 decimal places and convert back to number
+    return Number(maturityAmount.toFixed(2));
   }
   
   calculateInterestReturns(): number {
     const principal = this.fixedDepositForm.get('amount')?.value ?? 0;
     const maturityAmount = this.calculateMaturityAmount();
-    return maturityAmount - principal;
+    const interestReturns = maturityAmount - principal;
+  
+    // Truncate to 2 decimal places and convert back to number
+    return Number(interestReturns.toFixed(2));
   }
+  
   
   calculateTotalDays(): number {
     const years = this.fixedDepositForm.get('years')?.value ?? 0;
@@ -283,31 +314,64 @@ amountValidator(): ValidatorFn {
   }
 
 
-  requestFDAccount() {
-    if (this.fixedDepositForm.valid) {
-      const formData = this.fixedDepositForm.value;
-      const submissionData = {
-        fromAccount: formData.fromAccount,
-        amount: formData.amount,
-        duration: {
-          years: formData.years,
-          months: formData.months,
-          days: formData.days
-        },
-        roi: formData.roi,
-        maturityDate: this.getMaturityDate(),
-        maturityAmount: this.calculateMaturityAmount(),
-        interestReturns: this.calculateInterestReturns()
-        // Include any other fields that your API expects
-      };
-  
-      console.log("Data:",submissionData);
-      
-      this.submitToApi(submissionData);
-    } else {
-      console.log('Form is not valid');
-    }
+  // Inside your FixedDepositComponent class
+
+// Method to format and submit data
+submitData() {
+  if (this.fixedDepositForm.valid) {
+    const formData = this.fixedDepositForm.value;
+    const totalDays = this.calculateTotalDays();
+
+    // Make sure ROI is calculated based on the duration
+    this.calculateROI();
+
+    // Create the JSON object
+    const submissionData = {
+      fdAccountId: 0, // Assuming this is a static value or needs to be fetched from elsewhere
+      accountId: formData.fromAccount, // Assuming account ID is same as 'fromAccount'
+      amount: formData.amount,
+      duration: totalDays,
+      roi: formData.roi,
+      maturityDate: this.getMaturityDate(), // Already in the required format
+      maturityAmount: this.calculateMaturityAmount(),
+      interestReturns: this.calculateInterestReturns()
+    };
+
+    // Console log for debugging, replace this with your API call
+    console.log('Formatted Submission Data:', submissionData);
+
+    // Call your API submission function here
+    this.submitToApi(submissionData);
+  } else {
+    console.log('Form is not valid');
   }
+}
+
+  // requestFDAccount() {
+  //   if (this.fixedDepositForm.valid) {
+  //     const formData = this.fixedDepositForm.value;
+  //     const submissionData = {
+  //       fromAccount: formData.fromAccount,
+  //       amount: formData.amount,
+  //       duration: {
+  //         years: formData.years,
+  //         months: formData.months,
+  //         days: formData.days
+  //       },
+  //       roi: formData.roi,
+  //       maturityDate: this.getMaturityDate(),
+  //       maturityAmount: this.calculateMaturityAmount(),
+  //       interestReturns: this.calculateInterestReturns()
+  //       // Include any other fields that your API expects
+  //     };
+  
+  //     console.log("Data:",submissionData);
+      
+  //     this.submitToApi(submissionData);
+  //   } else {
+  //     console.log('Form is not valid');
+  //   }
+  // }
 
 
   submitToApi(data: any) {

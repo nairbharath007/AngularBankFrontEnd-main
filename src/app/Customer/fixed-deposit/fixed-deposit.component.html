@@ -1,5 +1,5 @@
 <div class="form-container">
-    <form [formGroup]="fixedDepositForm" (ngSubmit)="requestFDAccount()">
+    <form [formGroup]="fixedDepositForm" (ngSubmit)="submitData()">
         <!-- From Account Dropdown -->
         <div class="form-group">
           <label for="fromAccount">From Account:</label>
@@ -52,7 +52,7 @@
       <!-- ROI Field -->
       <div class="form-group">
         <label for="roi">Rate of Interest (ROI):</label>
-        <input formControlName="roi" type="text" id="roi" class="form-control" readonly>
+        <input formControlName="roi" type="number" id="roi" class="form-control" readonly>
       </div>
       
       <div class="view-interest-rates">
@@ -90,7 +90,7 @@
       <!-- Maturity Date -->
     <div class="form-group">
         <label>Maturity Date:</label>
-        <input type="text" class="form-control" [value]="getMaturityDate()" readonly>
+        <input type="text" class="form-control" [value]="getDisplayMaturityDate()" readonly>
       </div>
       
       <!-- Maturity Amount -->
