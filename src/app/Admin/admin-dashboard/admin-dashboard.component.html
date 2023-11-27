@@ -46,6 +46,13 @@
               </a>
             </li>
 
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" (click)="fdAccountRequestAccept()">
+                <!-- <i class="fas fa-lock fa-fw me-3"></i> -->
+                <span> FD Account Requests</span>
+              </a>
+            </li>
+
             <!-- Transaction Link -->
             <li class="nav-item" routerLinkActive="active">
               <a class="nav-link" (click)="UpdateInterest()">
@@ -366,6 +373,11 @@
 
         <div *ngIf="showPaginationStatus">
           <app-pagination></app-pagination>
+        </div>
+
+
+        <div *ngIf="showFDAccountRequests">
+          <app-admin-fdaccount-request></app-admin-fdaccount-request>
         </div>
 
       </main>

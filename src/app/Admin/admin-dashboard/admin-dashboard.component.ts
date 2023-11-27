@@ -453,6 +453,24 @@ this.userName=datas.userName
     this.showPaginationStatus=false
   }
 
+  showFDAccountRequests = false
+  fdAccountRequestAccept()
+  {
+    this.showFDAccountRequests = true
+    this.showAccountRequest = false;
+    this.showCustomerAll = false
+    this.showAccountTransactions = false
+    this.formShow = false;
+    this.showUpdateInterest = false
+    this.showQueryResult = false;
+    this.showTransactionState = false
+    this.showCardsState = false;
+    this.noQueryAdded=false;
+    this.showCrudeState=false;
+    this.adminRegister=false;
+    this.showPaginationStatus=false
+  }
+
   //
   showAccountTransactions = false
   AccountTransactionFilter() {

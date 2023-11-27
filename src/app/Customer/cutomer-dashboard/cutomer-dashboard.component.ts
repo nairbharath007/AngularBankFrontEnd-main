@@ -359,6 +359,23 @@ fixedDeposit()
   
 }
 
+showFDPassbook=false
+viewFDPassbook()
+{
+
+  this.showQueryTab = false
+  this.showTransaction = false
+  this.showAccountCreate = false;
+  this.showDocument = false;
+  this.showQuery = false
+  this.showAccountCreate = false;
+  this.showPassbook = false;
+  this.showAccountForm = false;
+  this.showCalculator = false;
+  this.showCardsState = false;
+  this.showFDPassbook=true
+}
+
  
 }
 

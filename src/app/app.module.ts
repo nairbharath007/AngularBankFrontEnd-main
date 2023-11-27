@@ -42,6 +42,8 @@ import { ShowInterestCardComponent } from './Admin/show-interest-card/show-inter
 import { CustomerUpdateComponent } from './Customer/customer-update/customer-update.component';
 import { CustomerBalanceComponent } from './Customer/customer-balance/customer-balance.component';
 import { FixedDepositComponent } from './Customer/fixed-deposit/fixed-deposit.component';
+import { AdminFdaccountRequestComponent } from './Admin/admin-fdaccount-request/admin-fdaccount-request.component';
+import { CustomerFdPassbookComponent } from './Customer/customer-fd-passbook/customer-fd-passbook.component';
 
 
 
@@ -78,7 +80,9 @@ import { FixedDepositComponent } from './Customer/fixed-deposit/fixed-deposit.co
     ShowInterestCardComponent,
     CustomerUpdateComponent,
     CustomerBalanceComponent,
-    FixedDepositComponent
+    FixedDepositComponent,
+    AdminFdaccountRequestComponent,
+    CustomerFdPassbookComponent
 
   ],
   imports: [

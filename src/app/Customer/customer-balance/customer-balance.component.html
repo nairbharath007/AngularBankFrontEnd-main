@@ -49,6 +49,21 @@
         </div>
       </div>
     </div>
+
+
+
+    <div class="col-md-6" *ngIf="fetch">
+      <div class="card border-primary mb-3">
+        <div class="card-body">
+          <h5 class="card-title">FD Account Details</h5>
+          <p class="card-text">Account Number: {{ fetch.fdAccountId }}</p>
+          <p class="card-text">Account Type: {{ fetch.accountType }}</p>
+          <p class="card-text">Opening Date: {{ fetch.openningDate }}</p>
+          <p class="card-text">Account Balance: {{ fetch.accountBalance }}</p>
+          <p class="card-text">Interest Rate: {{ fetch.intrestRate }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

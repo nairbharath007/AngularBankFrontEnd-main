@@ -28,6 +28,12 @@ export class AccountServiceService {
   requestFDAccountsUrl = "https://localhost:7078/api/Account/requestFdAccounts"
 
 
+  approveFDRequestUrl = "https://localhost:7078/api/Account/getAllRequestedFD"
+
+  activateFDAccountUrl = "https://localhost:7078/api/Account/activateFDAccount"
+
+  fetchFDAccountDetailsUrl = "https://localhost:7078/api/Account/acountIdFetchFDAccount"
+
   constructor(private http:HttpClient) { }
 
 public AccountFilter(id:any)
@@ -77,6 +83,22 @@ public FetchAccount(id:any)
 public CustomerRequestFD(data:any)
 {
   return this.http.post(this.requestFDAccountsUrl,data)
+}
+
+public AdminShowFDAccounts()
+{
+  return this.http.get(this.approveFDRequestUrl)
+}
+
+public ActivateFDAccountById(id:any)
+{
+  return this.http.get(this.activateFDAccountUrl+"/"+id)
+}
+
+
+public FetchFDAccountFromAccountID(id:any)
+{
+  return this.http.get(this.fetchFDAccountDetailsUrl+"/"+id)
 }
 
 
