@@ -377,7 +377,10 @@ submitData() {
   submitToApi(data: any) {
     this.accountService.CustomerRequestFD(data).subscribe({
       next: (response) => {
+        
         console.log('API Response:', response);
+        alert("FD account request sent to admin.")
+        location.reload()
         // Handle success, maybe navigate to another page or show a success message
       },
       error: (error) => {

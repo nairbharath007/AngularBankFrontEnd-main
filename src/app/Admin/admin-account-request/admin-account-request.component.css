@@ -76,15 +76,15 @@ label {
 }
 
 /* Style for submit button */
-.btn-primary {
-  background-color: #007bff; /* Button background color */
-  color: #fff; /* Button text color */
+/* .btn-primary {
+  background-color: #000000; 
+  color: rgb(136, 116, 3); 
 }
 
-/* Hover effect for submit button */
 .btn-primary:hover {
-  background-color: black; /* Darker blue on hover */
-}
+  background-color: gold; 
+  color: black
+} */
 
 
 /* Custom styles for full-screen modal */
@@ -178,4 +178,26 @@ table thead tr th{
   border-color: #0056b3; /* Border color on hover */
 }
 
+/* Base style for the buttons */
+.btn.btn-primary {
+  background-color: #e7b557; /* Default background */
+  color: black; /* Default text color */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+  font-weight: 500;
+}
 
+/* Hover effect */
+.btn.btn-primary:hover {
+  background-color: black; /* Background color on hover */
+  color: darkgoldenrod; /* Text color on hover */
+  font-weight: 500;
+}
+
+
+.btn .fas {
+  font-size: 1em; /* Adjust the size as needed */
+  color: inherit; /* Inherits color from the button */
+  vertical-align: middle; /* Aligns icon vertically */
+  padding-left: 15px;
+  padding-right: 15px;
+}

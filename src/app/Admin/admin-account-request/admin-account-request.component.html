@@ -36,12 +36,12 @@
                         <th>Customer Id</th>
                         <th>Action</th>
                         <th>Document</th>
-                        <th>Denial</th>
+                        <th>Deny</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let account of accounts">
-                        <td>{{account.customer.firstName}}{{account.customer.lastName}}</td>
+                        <td>{{account.customer.firstName}} {{account.customer.lastName}}</td>
                         <td>{{ account.accountNumber }}</td>
                         <td>{{ account.accountType }}</td>
                         <td>{{ account.openningDate | date: 'yyyy-MM-dd' }}</td>
@@ -51,9 +51,11 @@
                             <!-- <button class="btn btn-primary" (click)="acceptAccount(account.accountNumber)">Accept</button> -->
                             <button class="btn btn-primary" (click)="confirmAccept(account.accountNumber)">Accept</button>
                         </td>
-                        <td><button class="btn btn-primary" (click)="onSubmit(account.customerId)">View Document</button></td>
+                        <td><button class="btn btn-primary" (click)="onSubmit(account.customerId)">   <i class="fas fa-solid fa-image fa-2xl"></i>   
+
+                        </button></td>
                         <!-- <td><button class="btn btn-primary" (click)="onDenial(account.accountNumber)">Denial</button></td> -->
-                        <td><button class="btn btn-primary" (click)="confirmDenial(account.accountNumber)">Denial</button></td>
+                        <td><button class="btn btn-primary" (click)="confirmDenial(account.accountNumber)">Deny</button></td>
 
                     </tr>
                 </tbody>

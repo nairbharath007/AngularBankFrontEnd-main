@@ -346,6 +346,7 @@ this.userName=datas.userName
           this.showCrudeState=false;
           this.adminRegister=false;
           this.showPaginationStatus=false
+          this.showFDAccountRequests = false
           
           
           
@@ -361,6 +362,7 @@ this.userName=datas.userName
           this.showCrudeState=false;
           this.adminRegister=false;
           this.showPaginationStatus=false
+          this.showFDAccountRequests = false
           console.log(err);
           console.log("error worked");
 
@@ -433,6 +435,7 @@ this.userName=datas.userName
     this.showCrudeState=false;
     this.adminRegister=false;
     this.showPaginationStatus=false
+    this.showFDAccountRequests = false
 
   }
 
@@ -451,6 +454,7 @@ this.userName=datas.userName
     this.showCrudeState=false;
     this.adminRegister=false;
     this.showPaginationStatus=false
+    this.showFDAccountRequests = false
   }
 
   showFDAccountRequests = false
@@ -485,6 +489,7 @@ this.userName=datas.userName
     this.showCrudeState=false;
     this.adminRegister=false;
     this.showPaginationStatus=false
+    this.showFDAccountRequests = false
   }
 
   //showCustomerAll
@@ -503,6 +508,7 @@ this.userName=datas.userName
     this.showCrudeState=false;
     this.adminRegister=false;
     this.showPaginationStatus=false
+    this.showFDAccountRequests = false
   }
   //update interest
   showUpdateInterest = false
@@ -520,6 +526,7 @@ this.userName=datas.userName
     this.showCrudeState=false;
     this.adminRegister=false;
     this.showPaginationStatus=false
+    this.showFDAccountRequests = false
 
   }
 
@@ -538,6 +545,7 @@ this.userName=datas.userName
     this.showCrudeState=false;
     this.adminRegister=false;
     this.showPaginationStatus=true;
+    this.showFDAccountRequests = false
     
 
   }
@@ -562,6 +570,7 @@ this.userName=datas.userName
     this.showCrudeState=false;
     this.adminRegister=false;
     this.showPaginationStatus=false
+    this.showFDAccountRequests = false
   }
 
 
@@ -581,6 +590,7 @@ this.showCrudeState=true
     this.showCardsState=false;
     this.adminRegister=false;
     this.showPaginationStatus=false
+    this.showFDAccountRequests = false
   }
 
 
@@ -603,6 +613,7 @@ this.showCrudeState=true
     this. showCustomerAll=false;
     this.showCardsState=false;
     this.showPaginationStatus=false
+    this.showFDAccountRequests = false
     
   }
 
@@ -620,6 +631,7 @@ this.showCrudeState=true
     this.showQueryResult=false;
     this. showCustomerAll=false;
     this.showCrudeState=false;
+    this.showFDAccountRequests = false
   }
 
 

@@ -1,5 +1,6 @@
 <!-- account-list.component.html -->
 <div *ngIf="showAccountNotFound" class="mt-3">
+    
     <ngb-alert [type]="'danger'">
       <h4 class="alert-heading">Sorry, No Account Request Found</h4>
       <p class="mb-0">Please verify the information and try again.</p>
@@ -7,6 +8,10 @@
     </ngb-alert>
   </div>
   
+  <ngb-alert *ngIf="showErrorMessage" >
+    Insufficient account balance. <button type="button" class="btn btn-success" (click)="reset()">Clear</button> 
+ </ngb-alert>
+
   <div class="container mt-4">
       <!-- Search Section on Top Right -->
       <div class="row">
@@ -31,7 +36,7 @@
                           <!-- <th>Customer Name</th> -->
                           <th>Account Number</th>
                           <th>Fd Account</th>
-                          <th>Request Date</th>
+                          <!-- <th>Request Date</th> -->
                           <th>Amount</th>
                           <th>Duration</th>
                           <th>ROI</th>
@@ -49,11 +54,11 @@
                           <!-- <td>{{account.customer.firstName}}{{account.customer.lastName}}</td> -->
                           <td>{{ account.accountId }}</td>
                           <td>{{ account.fdAccountId }}</td>
-                          <td>{{ account.openingDate | date: 'yyyy-MM-dd' }}</td>
+                          <!-- <td>{{ account.openingDate | date: 'yyyy-MM-dd' }}</td> -->
                           <td>{{ account.amount }}</td>
                           <td>{{ account.duration }}</td>
                           <td>{{ account.roi }}</td>
-                          <td>{{ account.maturityDate }}</td>
+                          <td>{{ account.maturityDate | date: 'yyyy-MM-dd'}}</td>
                           <td>{{ account.maturityAmount }}</td>
                           <td>{{ account.interestReturns }}</td>
                           <!-- <td>{{ account.customerId }}</td> -->

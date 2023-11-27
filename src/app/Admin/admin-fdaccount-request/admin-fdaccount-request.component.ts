@@ -60,7 +60,7 @@ export class AdminFdaccountRequestComponent {
 
   }
  
-
+  showErrorMessage:any =false
   acceptAccount(account: any) {
     this.auth.ActivateFDAccountById(account).subscribe(
       {
@@ -69,12 +69,19 @@ export class AdminFdaccountRequestComponent {
           location.reload()
         },
         error: (err: HttpErrorResponse) => {
+          // alert("Insufficient account balance.")
+          this.showErrorMessage=true
           console.log(err);
 
 
         }
       }
     )
+  }
+
+  reset()
+  {
+    location.reload()
   }
   ViewDoc(id:any){
 

@@ -43,7 +43,7 @@ body {
 .nav-link {
   border-radius: 10px;
   margin: 10px; /* Adjust as needed for space between nav-links */
-  padding: 10px; /* Adjust padding for larger click area and spacing */
+  padding: 7px; /* Adjust padding for larger click area and spacing */
   /* border-bottom: 1px dotted #475057;  */
   /* Divider color */
 }
@@ -77,8 +77,8 @@ body {
 
 /* General styling for the navigation item */
 .nav-item.fdcalc-button {
-  margin: 5px 0; /* Adds some space around each nav item */
-  padding: 0 10px; /* Adds padding inside the nav item */
+  margin: 0px 0; /* Adds some space around each nav item */
+  padding: 0 0px; /* Adds padding inside the nav item */
   border-radius: 5px; /* Slightly rounded corners for a softer look */
 }
 
@@ -86,7 +86,7 @@ body {
 .nav-link.fdcalc-button1 {
   color: rgb(252, 216, 176); /* Primary color for the link */
   background-color: #312f2f; /* Light background for the link */
-  padding: 8px 15px; /* Padding inside the link for a larger click area */
+  padding: 8px 8px; /* Padding inside the link for a larger click area */
   border-radius: 5px; /* Rounded corners to match the nav item */
   transition: all 0.3s ease; /* Smooth transition for hover effects */
   text-decoration: none; /* Removes underline from the link */
@@ -176,12 +176,12 @@ border-radius: 10px;
 
 .navbar {
 box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
-margin-left: 30px;
+margin-left: 10px;
 }
 
 
 .navbar-custom-text {
-font-size: 1.5em; /* Adjust this value as needed */
+font-size: 1.2em; /* Adjust this value as needed */
 }
 
 /* Adjust this if you want to style the search bar differently */

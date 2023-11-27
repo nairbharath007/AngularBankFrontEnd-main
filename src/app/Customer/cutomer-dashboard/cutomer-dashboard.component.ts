@@ -112,6 +112,9 @@ viewPassbook()
       this.showCardsState = false;
       this.showUpdateForm=false
       this.showBalance=false
+      this.showFDPassbook=false
+      this.showFixedDeposit=false
+  
 }
 
 //show Account statment
@@ -132,6 +135,9 @@ this.showCalculator = false;
       this.showCardsState = false;
       this.showUpdateForm=false
       this.showBalance=false
+      this.showFDPassbook=false
+      this.showFixedDeposit=false
+  
 }
  
 
@@ -154,6 +160,9 @@ this.showCalculator = false;
       this.showCardsState = false;
       this.showUpdateForm=false
       this.showBalance=false
+      this.showFDPassbook=false
+      this.showFixedDeposit=false
+  
 }
 
 
@@ -175,6 +184,9 @@ showDocumentFun() {
       this.showCardsState = false;
       this.showUpdateForm=false
       this.showBalance=false
+      this.showFDPassbook=false
+      this.showFixedDeposit=false
+  
 }
 
 
@@ -197,6 +209,9 @@ this.showAccountCreate=true;
       this.showWarrning=false;
       this.showUpdateForm=false
       this.showBalance=false
+      this.showFDPassbook=false
+      this.showFixedDeposit=false
+  
 
 
 }
@@ -222,6 +237,9 @@ this.showTransaction=true
       this.showCardsState = false;
       this.showUpdateForm=false
       this.showBalance=false
+      this.showFDPassbook=false
+      this.showFixedDeposit=false
+  
   
   
 }
@@ -248,6 +266,9 @@ this.showAccountForm=true;
       this.showWarrning=false;
       this.showUpdateForm=false
       this.showBalance=false
+      this.showFDPassbook=false
+      this.showFixedDeposit=false
+  
 }
 
 
@@ -269,6 +290,9 @@ queyFunShow()
       this.showCardsState = false;
       this.showUpdateForm=false
       this.showBalance=false
+      this.showFDPassbook=false
+      this.showFixedDeposit=false
+  
 }
 logout() {
   // Call the logout method to clear user-related data
@@ -289,6 +313,10 @@ showCards() {
   this.showCalculator = false;
   this.showUpdateForm=false
   this.showBalance=false
+  this.showFDPassbook=false
+  this.showFixedDeposit=false
+  this.showAccountStatment=false
+  
 }
 showCalculator = false;
 fdcalculator() {
@@ -304,6 +332,10 @@ fdcalculator() {
   this.showCardsState = false;
   this.showUpdateForm=false
   this.showBalance=false
+  this.showFDPassbook=false
+  this.showFixedDeposit=false
+  this.showAccountStatment=false
+  
 }
 
 
@@ -322,6 +354,10 @@ updateCustomer()
   this.showCalculator = false;
   this.showCardsState = false;
   this.showBalance=false
+  this.showFDPassbook=false
+  this.showFixedDeposit=false
+  this.showAccountStatment=false
+  
 }
 
 showBalance=false
@@ -339,6 +375,10 @@ this.showPassbook = false;
 this.showAccountForm = false;
 this.showCalculator = false;
 this.showCardsState = false;
+this.showFDPassbook=false
+this.showFixedDeposit=false
+this.showAccountStatment=false
+  
 }
 
 showFixedDeposit=false
@@ -356,6 +396,9 @@ fixedDeposit()
   this.showAccountForm = false;
   this.showCalculator = false;
   this.showCardsState = false;
+  this.showFDPassbook=false
+  this.showAccountStatment=false
+  this.showBalance=false
   
 }
 
@@ -374,6 +417,8 @@ viewFDPassbook()
   this.showCalculator = false;
   this.showCardsState = false;
   this.showFDPassbook=true
+  this.showFixedDeposit=false
+  this.showAccountStatment=false
 }
 
  

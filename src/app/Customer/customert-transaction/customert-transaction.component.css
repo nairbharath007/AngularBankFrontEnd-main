@@ -1,7 +1,7 @@
-.card:hover {
-    border: 2px solid #007bff; /* Apply border style on hover */
-    cursor: pointer; /* Change cursor on hover */
-  }/* Style the select dropdown */
+/* .card:hover {
+    border: 2px solid #007bff; 
+    cursor: pointer; 
+  }
 .form-group {
   position: relative;
 }
@@ -18,7 +18,6 @@
   z-index: 2;
 }
 
-/* Add some styling to the form and select dropdown */
 form {
   margin-top: 20px;
 }
@@ -27,17 +26,120 @@ form {
   margin-bottom: 20px;
 }
 
-/* Style the error message */
 .text-danger {
-  color: #dc3545; /* Red color for error text */
+  color: #dc3545; 
   margin-top: 5px;
 }
 
-/* Style the submit button */
 .btn-primary {
   cursor: pointer;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3; /* Change background color on hover */
+  background-color: #0056b3; 
+} */
+
+
+/* Keyframes for slide-in animation */
+@keyframes slideInAnimation {
+  from {
+      transform: translateX(-30px);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+/* Apply the animation to each form group */
+.form-group {
+  animation: slideInAnimation 0.8s ease-out;
+}
+
+/* Make cards more opaque */
+.card {
+  background-color: rgb(240, 235, 235,0.4); /* Black background with 90% opacity */
+  color: black; /* Text color */
+  transition: transform 0.3s ease /* Smooth transition for hover effects */
+}
+
+/* Optional: Ensure that children elements don't inherit the opacity */
+
+.card * {
+  opacity: 1; /* Full opacity for children elements */
+}
+
+/* Hover effect on cards */
+.card:hover {
+  transform: scale(1.05); 
+  background-color: rgb(240, 235, 235,0.9);/* Slightly enlarges the card */
+  /* opacity: 1;  */
+}
+
+/* Stronger text weight */
+.card-header, .card-text {
+  font-weight: bold; /* Makes the text bolder */
+}
+
+/* Transition and transform effects for forms */
+.form-group {
+  transition: transform 0.3s ease-in-out;
+}
+
+.form-group:target {
+  transform: scale(1.1); /* Slightly enlarges the target form group */
+}
+
+
+/* Styling Labels */
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Styling Input Fields and Textareas */
+.form-control {
+  border-radius: 5px; /* Rounded Borders */
+  border: 1px solid #ced4da; /* Light grey border */
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075); /* Subtle inner shadow */
+  padding: 10px; /* Padding for larger touch area and better readability */
+  margin-bottom: 20px; /* Spacing between each form-control */
+}
+
+/* Focus Effect for Input Fields */
+.form-control:focus {
+  border-color: #80bdff; /* Blue border on focus */
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); /* Glowing effect on focus */
+}
+
+/* Styling Textareas */
+textarea.form-control {
+  height: auto; /* Auto height based on content */
+}
+
+/* Styling Buttons */
+.btn-primary {
+  background-color: #007bff; /* Primary blue background */
+  border-color: #007bff; /* Matching border */
+  color: white; /* White text */
+  padding: 10px 15px; /* Padding for a larger click area */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Button Hover Effect */
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  border-color: #0056b3; /* Matching border on hover */
+  box-shadow: 0 0 10px rgba(0,123,255,.5); /* Shadow effect on hover */
+}
+
+/* Error Messages */
+.text-danger {
+  color: #dc3545; /* Red color for error messages */
+  font-size: 0.875em; /* Slightly smaller font size */
+  margin-top: -15px; /* Positioning closer to the input field */
+  margin-bottom: 20px; /* Spacing after the error message */
 }
