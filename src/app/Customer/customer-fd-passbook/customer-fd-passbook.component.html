@@ -24,7 +24,7 @@
           </div>
           
          
-        <!-- <div *ngIf="resultcondition">
+        <div *ngIf="resultcondition">
             <div class="container mt-4">
                 <h2>Account Information</h2>
                 <table class="table">
@@ -33,17 +33,15 @@
                       <th>Account Number</th>
                       <th>Account Type</th>
                       <th>Opening Date</th>
-                      <th>Account Balance</th>
-                      <th>Customer Name</th>
-                    </tr>
+                      <th>Account Balance</th>                   
+                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let account of accounts">
-                      <td>{{ account.accountNumber }}</td>
-                      <td>{{ account.accountType }}</td>
-                      <td>{{ account.openningDate | date:'short' }}</td>
-                      <td>{{ account.accountBalance |  currency:'INR' }}</td>
-                      <td>{{ account.customer.firstName }} {{ account.customer.lastName }}</td>
+                    <tr *ngIf="accounts">
+                        <td>{{ accounts.accountNumber }}</td>
+                        <td>{{ accounts.accountType }}</td>
+                        <td>{{ accounts.openningDate | date:'short' }}</td>
+                        <td>{{ accounts.accountBalance | currency:'INR' }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -59,7 +57,7 @@
                       
                       <th>Opening Date</th>
                       <th> Amount</th>
-                      <th>Duration</th>
+                      <th>Duration (in days)</th>
                       <th>ROI</th>
                       <th>Maturity Date</th>
                       <th>Maturity Amount</th>
@@ -67,8 +65,8 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <ng-container *ngFor="let account of accounts">
-                      <tr *ngFor="let fdAccount of account.fdAccounts">
+                    <!-- <ng-container *ngFor="let account of accounts"> -->
+                      <tr *ngFor="let fdAccount of accounts.fdAccounts">
                         <td>{{ fdAccount.fdAccountId }}</td>
                         <td>{{ fdAccount.accountId }}</td>
                         
@@ -80,18 +78,18 @@
                         <td>{{ fdAccount.maturityAmount }}</td>
                         <td>{{ fdAccount.interestReturns }}</td>
                       </tr>
-                    </ng-container>
+                    <!-- </ng-container> -->
                   </tbody>
                 </table>
               </div>
               
         </div>
         
-     -->
+    
 
 
      
-        <div class="container mt-4">
+        <!-- <div class="container mt-4">
             <h2>Account Information</h2>
             <table class="table">
                 <thead>
@@ -100,16 +98,14 @@
                         <th>Account Type</th>
                         <th>Opening Date</th>
                         <th>Account Balance</th>
-                        <th>Customer Name</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let account of accounts">
-                        <td>{{ account.accountNumber }}</td>
-                        <td>{{ account.accountType }}</td>
-                        <td>{{ account.openningDate | date:'short' }}</td>
-                        <td>{{ account.accountBalance | currency:'INR' }}</td>
-                        <td>{{ account.customer?.firstName }} {{ account.customer?.lastName }}</td>
+                    <tr *ngIf="accounts">
+                        <td>{{ accounts.accountNumber }}</td>
+                        <td>{{ accounts.accountType }}</td>
+                        <td>{{ accounts.openningDate | date:'short' }}</td>
+                        <td>{{ accounts.accountBalance | currency:'INR' }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -118,7 +114,7 @@
         <div class="container mt-4">
             <h2>FD Account Details</h2>
             <div *ngFor="let account of accounts">
-                <table class="table" *ngIf="account.fdAccounts && account.fdAccounts.length">
+                <table class="table" *ngIf="account.fdAccounts">
                     <thead>
                         <tr>
                             <th>Fd Account ID</th>
@@ -149,4 +145,4 @@
             </div>
         </div>
     
-    
+     -->

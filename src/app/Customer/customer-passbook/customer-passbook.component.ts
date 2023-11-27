@@ -70,7 +70,7 @@ export class CustomerPassbookComponent {
       next: (res) => {
         this.resultcondition = true
         this.accounts = res;
-        console.log("worked");
+        console.log(this.accounts);
 
       },
       error: (err: HttpErrorResponse) => {
